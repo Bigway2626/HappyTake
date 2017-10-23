@@ -1,29 +1,42 @@
 <?php
-
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Post as PostEloquent;
+use App\Participation as ParticipationEloquent;
+use App\Comment as CommentEloquent;
+use App\Question as QuestionEloquent;
+use App\Reply as ReplyEloquent;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'gender', 'department',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function posts() {
+        return $this -> hasMany(PostEloquent::class);
+    }
+
+    public function participations() {
+        return $this -> hasMany(ParticipationEloquent::class);
+    }
+
+    public function comments() {
+        return $this -> hasMany(CommentEloquent::class);
+    }
+
+    public function questions() {
+        return $this -> hasMany(QuestionEloquent::class);
+    }
+
+    public function replies() {
+        return $this -> hasMany(ReplyEloquent::class);
+    }
 }

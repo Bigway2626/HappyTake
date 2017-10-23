@@ -9,3 +9,5 @@
 <link rel="stylesheet" href="{{ asset('assets/css/unify-core.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/unify-components.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/unify-globals.css') }}">
+<link  rel="stylesheet" href="{{ asset('assets/vendor/custombox/custombox.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/malihu-scrollbar/jquery.mCustomScrollbar.min.css') }}">

@@ -9,27 +9,30 @@
                         </span>
                     </span>
                 </button>
-                <a href="article.html" class="navbar-brand">
-                    <img src="{{ asset('assets/img/logo/car.png') }}" width="103" height="39" alt="Image Description">
+                <a href="{{ url('/') }}" class="navbar-brand">
+                    <img src="{{ asset('assets/img/logo/car.png') }}" width="103" height="39">
                 </a>
                 <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
                     <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
                         <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                            <a href="{{ url('/') }}" class="nav-link g-py-7 g-px-0">文章列表</a>
+                            <a href="{{ url('/') }}" class="nav-link g-py-7 g-px-0">文章</a>
                         </li>
                         @if (Auth::check())
-                        <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                            <a href="{{ url('/profile') }}" class="nav-link g-py-7 g-px-0">{{ Auth::user() -> name }}</a>
-                        </li>
-                        <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link g-py-7 g-px-0">登出</a>
-                        </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                            <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                                <a href="{{ url('/my_posts') }}" class="nav-link g-py-7 g-px-0">{{ Auth::user() -> name }}</a>
+                            </li>
+                            <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link g-py-7 g-px-0">登出</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                         @else
-                        <li class="nav-item  g-mx-10--lg g-mx-15--xl">
-                            <a href="{{ route('login') }}" class="nav-link g-py-7 g-px-0">登入</a>
-                        </li>
+                            <li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                                <a href="{{ route('login') }}" class="nav-link g-py-7 g-px-0">登入</a>
+                            </li>
                         @endif
+                        <!--<li class="nav-item  g-mx-10--lg g-mx-15--xl">
+                            <span class="skype-button rounded" data-bot-id="8d183f40-99f3-4601-ba35-748d92cfabd2" data-text="線上客服"></span>
+                        </li>-->
                     </ul>
                 </div>
             </div>
